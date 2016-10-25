@@ -1,16 +1,22 @@
 ####Problem Description
 Write a program, to implement ( abstract data type ) String. Following are the operations:
-   indexOf(char[]) : Returns the index of parameter char[] in given char[] 
-   contains() : Returns a boolean indicating whether the given char[] contains the parameter char[] or not
-   endsWith() : Returns a boolean indicating whether the given char[] ends with the parameter char[] or not
+   substring() : Takes two int index's as parameters and returns the substring between those indexes. (including startIndex and excluding endIndex)
+   equals() : Takes a char[] as parameter and returns a boolean indicating whether the parameter char[] exactly matches the given char[] or not
+   replace() : Takes two char[] as parameters. In a given char[], it replaces the all occurrences of first parameter char[] with Second parameter char[] and returns the resultant.
 
 # Methods:
    Declare a character array globally.
    Create a class StringADT and a constructor StringADT(char[]) which takes a char[] as parameter and initialize the global character Array.
-   1) indexOf(char[]) returns int
-   2) contains(char[]) returns boolean
-   3) endsWith(char[]) return boolean
-   
+   1) substring(int, int) return char[]
+   2) equals(char[]) return boolean
+   3) replace(char[], char[]) return char[]
+
+# NOTE:
+   There might be some Exception cases where you need to throw the type of Exception.
+   Example: 
+      string.substring(-1,3);
+      Handle it like, 
+         if(condition) throw new IndexOutOfBoundsException("message");
 
 ####################### DON'T DELETE .CLASS FILES. DON'T CHANGE ANY FILENAMES ########################
 
@@ -33,32 +39,28 @@ Write a program, to implement ( abstract data type ) String. Following are the o
 
 ####Test Cases:
 Testcase #1:
-string = {'h','e','l','l','o',' ','w','o,'r','l','d'}
-Input: #1 - string.indexOf({'w','o','r','l','d'})
-Output: 6
-Input: #1 - string.contains({'o',' ','w','o','r'})
-Output: true
-Input: #1 - string.endsWith({'l','d'})
-Output: true
+string = {'h','e','l','l','o',' ','w','o','r','l','d',',',' ','h','e','l','l','o',' ','m','s','i','t'}
+Input: #1 - string.substring(4,9)
+Output: {'o',' ','w','o','r'}
+Input: #1 - string.equals({'h','e','l','l','o',' ','w','o','r','l','d',',','h','e','l','l','o',' ','m','s','i','t'})
+Output: false
+Input: #1 - string.replace({'h','e','l','l','o'},{'h','o','l','a'})
+Output: {'h','o','l','a',' ','w','o','r','l','d',',',' ','h','o','l','a',' ','m','s','i','t'}
 
 Testcase #2:
-string = ""
-Input: #2 - string.indexOf({'2','4'})
-Output: -1
-Input: #2 - string.contains({'m','s','i','t'})
-Output: flase
-Input: #2 - string.contains({''})
+string = {' '}
+Input: #2 - string.substring(3,2)
+Output: "Index Out of Bounds Exception"
+Input: #2 - string.equals({' '})
 Output: true
-Input: #2 - string.endsWith({' '})
-Output: false
+Input: #2 - string.replace({' '},{'E','m','p','t','y'})
+Output: {'E','m','p','t','y'}
 
 Testcase #3:
-string = "MSITExam"
-Input: #3 - string.indexOf({'I','T','E'})
-Output: 2
-Input: #3 - string.contains({' '})
+string = {'M','S','I','T','E','x','a','m','i','t','e'}
+Input: #3 - string.substring(-1,3)
+Output: "Index Out of Bounds Exception"
+Input: #3 - string.equals({'m','s','i','t','e','x','a','m','i','t','e'})
 Output: false
-Input: #3 - string.contains({'e'})
-Output: false
-Input: #3 - string.endsWith({''})
-Output: true
+Input: #3 - string.replace({'i','t','e'},{'i','e','t','e'})
+Output: {'M','S','I','T','E','x','a','m','i','e','t','e'}

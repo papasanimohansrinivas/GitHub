@@ -1,122 +1,84 @@
-import java.util.Scanner;
+import java.util.*;
 
 class StringADT{
-	char h[];
-	public StringADT(char [] array){
-		h=array;
-
+	char[] arr;
+	char [] ans;
+	public StringADT(char[] initial){
+		arr=initial;
 	}
-	public int indexOf(char [] array2 ){
+	public char[] substring(int start, int end){
 
-		int p = 0;
+		char j[] = new char[10];
+		int length=arr.length;
 
-		if(contains(array2)){
-			for(int w=0;w<h.length;w++){
-				if(h[w]==array2[0]){
-					p=w;
-					break;			
-				}
+		if(start>0 && start<length && 0<end && end<length && end>start){
+			char[] h = new char[end-start];
+			for (int y=start,q=0;y<end&&q<length ;y++,q++ ) {
+				h[q]=arr[y];
 			}
+			j=h;
+			System.out.println();
 		}
-		else{
-			return -1;
+		if (start<0 || start>length || end<0 || end>length || end<start ) {
+			throw new IndexOutOfBoundsException("Index Out of Bounds Exception");
 		}
-
-		return p;
+		
+		return j;
+		//j=h;
 
 		
 
-	}
-	public boolean contains(char [] array1){
-
-		boolean w1 = false;
-
-		for(int f=0;f<array1.length;f++){
-			char temp = array1[f];
-			for(int w=0;w<h.length;w++){
-				if(h[w]==temp){
-					w1=true;
-					break;
-				}
-			}
-		}
-
-		if(w1){
-			return true;
-		}
-		else{
-			return false;
-		}
-
-
+		//return j;
+		
+				
 		
 
 	}
-	public boolean endswith(char [] array3){
-
-
-		if(indexOf(array3)!=-1){
-			return true;
+	public boolean equals(char[] par){
+		boolean result=false;
+		
+		String temp1="";
+		
+		if (par.length==arr.length) {
+			int count=0;
+			for (int q=0;q<arr.length ;q++ ) {
+				if (arr[q]==par[q]) {
+					count++;
+				}
+			}
+			if (count==arr.length) {
+				result =true;
+				
+			}
+			else{
+				result =false;
+			}
 		}
-
-		return false;
-
+		else{
+			result=false;
+		}
+		return result;
+		
+		
 	}
-	public static void testcases(char [] h,char [] g1,char [] g2,char[] g3){
+	public char[] replace(char[] given , char[] replace){
+		String m="";
+		
 
-		StringADT d = new StringADT(h);
+		//System.out.println(e);
 
-		System.out.println(d.indexOf(g1));
 
-		System.out.println(d.contains(g2));
-
-		System.out.println(d.endswith(g3));
-
+		return arr;
 	}
-
-	public static void main(String[] args) {
-
-
-		char h[] = new char[]{'h','e','l','l','o',' ','w','o','r','l','d'};
-
-		char g1[] = new char[]{'w','o','r','l','d'};
-
-		char g2[] = new char[]{'o',' ','w','o','r'};
-
-		char g3[] = new char[]{'l','d'};
-
-		testcases(h,g1,g2,g3);
-
-		h = new char[]{'\0'};
-
-		g1 = new char[]{'2','4'};
-
-		g2 = new char[]{'m','s','i','t'};
-
-		g3 = new char[]{' '};
-
-		testcases(h,g1,g2,g3);
-
-
-
-		h = new char[]{'M','S','I','T','E','x','a','m'};
-
-		g1 = new char[]{'I','T','E'};
-
-		g2 = new char[]{' '};
-
 	
+	public static void main(String[] args) {
+		char r[] = {'M','S','I','T','E','x','a','m','i','t','e'};
+		char given[] = {'i','t','e'};
+		char replace[] ={'i','e','t','e'};
 
-		
+		StringADT to = new StringADT(r);
 
-
-
-
-
-
-		
-		
-
+		to.replace(given,replace); 
 
 		
 	}
