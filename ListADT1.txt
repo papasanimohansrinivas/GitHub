@@ -1,0 +1,98 @@
+####Problem Description
+Write a program, to implement ( abstract data type ) List. Following are the operations:
+   get(index) : Returns the int element at specified index position
+   indexOf(int) : Returns the index of the first occurrence of the specified int in this list, or -1 if this list does not contain the int
+   addAll(int[]) : Inserts all the elements of specified int array to the end of list
+   containsAll(int[]) : Returns a boolean indicating whether the list contains all the elements of specified int array or not
+   toString() : Converts and Returns the current list as a String datatype
+
+# Methods:
+   Declare a character array globally.
+   Create a class ListADT and a constructor ListADT(int[]) which takes an int[] as parameter and initialize the global int Array.
+   1) get(int) return int
+   2) indexOf(int) return int
+   3) addAll(int[]) void
+   4) containsAll(int[]) return boolean
+   5) toString() return String
+
+# NOTE:
+   There might be some Exception cases where you need to throw the type of Exception.
+   Example: 
+      list = {1,2,3,4};
+      list.get(5)
+      Handle it like, 
+         if(condition) throw new IndexOutOfBoundsException("message");
+
+####################### DON'T DELETE .CLASS FILES. DON'T CHANGE ANY FILENAMES ########################
+
+#Follow these instruction to start writing code
+1) Understand the question properly 
+2) In both the program files, .java and .cpp, implement the above methods and check if the testcases are passed.
+3) To build your program, open filepath in Command Prompt and compile, 
+   "javac ListADT.java" (or) CTRL+B in Sublime Text Editor
+   To see the result of your program:
+   "java ListADT"
+   To run Test Cases:
+   "java TestRunner"
+4) To build your program, open filepath in Command Prompt and compile, 
+   "g++ ListADT.cpp" (or) CTRL+B in Sublime Text Editor
+   If compilation of C++ program is taking time, please change the boolean in Line-3 to false and try. 
+   This will disable testcases and compile your program.
+   If you want to see testcase result, reset it to true again and try.
+   To see the result and run testcases:
+   "a.exe"
+
+####Test Cases: 
+list = {1,0,-9,10,55,5,-6}
+Testcase #1:
+Input :     #1 - list.get(5)
+Output :    5
+
+Testcase #2:
+Input :     #2 - list.get(-6)
+Output :    Index Out of Bounds Exception
+
+Testcase #3:
+Input :     #3 - list.get(7) 
+Output :    Index Out of Bounds Exception
+
+Testcase #4:
+Input :     #4 - list.indexOf(55)
+Output :    4
+
+Testcase #5:
+Input :     #5 - list.indexOf(5)
+Output :    5
+
+Testcase #6:
+Input :     #6 - list.indexOf(-1)
+Output :    -1
+
+Testcase #7:
+Input :     #7 - list.containsAll({1,5,10})
+Output :    true
+
+Testcase #8:
+Input :     #8 - list.containsAll({1,5,10,19,-6,55,0,56})
+Output :    false
+
+Testcase #9:
+Input :     #9 - list.containsAll({})
+Output :    true
+
+Testcase #10:
+Input :     #10 - list.addAll({1,2,3,4})
+            list.toString()
+Output :    [1,0,-9,10,55,5,-6,1,2,3,4]
+
+Input :     #11 - list.addAll({1,0,-9,10,55,5,-6,1,2,3,4})
+            list.toString()
+Output :    [1,0,-9,10,55,5,-6,1,2,3,4,1,0,-9,10,55,5,-6,1,2,3,4]
+
+Input :     #12 - list.addAll({})
+            list.toString()
+Output :    [1,0,-9,10,55,5,-6,1,2,3,4,1,0,-9,10,55,5,-6,1,2,3,4]
+
+Input :     #13 - list.addAll({1})
+            list.toString()
+Output :    [1,0,-9,10,55,5,-6,1,2,3,4,1,0,-9,10,55,5,-6,1,2,3,4,1]
