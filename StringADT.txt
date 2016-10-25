@@ -1,15 +1,16 @@
 ####Problem Description
 Write a program, to implement ( abstract data type ) String. Following are the operations:
-   indexOf(char) : Returns the index of first occurance of the given character in a char[]
-   length() : Returns the length of char[]
-   count() : Returns the count of occurrences of parameter char[] in a char[]
+   indexOf(char[]) : Returns the index of parameter char[] in given char[] 
+   contains() : Returns a boolean indicating whether the given char[] contains the parameter char[] or not
+   endsWith() : Returns a boolean indicating whether the given char[] ends with the parameter char[] or not
 
 # Methods:
    Declare a character array globally.
    Create a class StringADT and a constructor StringADT(char[]) which takes a char[] as parameter and initialize the global character Array.
-   1) indexOf(char) returns int
-   2) length() returns int
-   3) count(char[]) return int
+   1) indexOf(char[]) returns int
+   2) contains(char[]) returns boolean
+   3) endsWith(char[]) return boolean
+   
 
 ####################### DON'T DELETE .CLASS FILES. DON'T CHANGE ANY FILENAMES ########################
 
@@ -32,32 +33,32 @@ Write a program, to implement ( abstract data type ) String. Following are the o
 
 ####Test Cases:
 Testcase #1:
-string = {'m','i','s','s','i','s','s','i','p','p','i'}
-Input: #1 - string.indexOf('i')
-Output: 1
-Input: #1 - string.length()
-Output: 11
-Input: #1 - string.count({'i','s'})
-Output: 2
-Input: #1 - string.count({'s'})
-Output: 4
+string = {'h','e','l','l','o',' ','w','o,'r','l','d'}
+Input: #1 - string.indexOf({'w','o','r','l','d'})
+Output: 6
+Input: #1 - string.contains({'o',' ','w','o','r'})
+Output: true
+Input: #1 - string.endsWith({'l','d'})
+Output: true
 
 Testcase #2:
-string = {''}
-Input: #2 - string.indexOf('i')
+string = ""
+Input: #2 - string.indexOf({'2','4'})
 Output: -1
-Input: #2 - string.length()
-Output: 0
-Input: #2 - string.count({'a','b','c'})
-Output: 0
+Input: #2 - string.contains({'m','s','i','t'})
+Output: flase
+Input: #2 - string.contains({''})
+Output: true
+Input: #2 - string.endsWith({' '})
+Output: false
 
 Testcase #3:
-string = {'h','e','l','l','o','s','l','k','h','e','l','l','o','d','j','l','a','d','f','j','h','e','l','l','o'}
-Input: #3 - string.indexOf('L')
-Output: -1
-Input: #3 - string.length()
-Output: 25
-Input: #3 - string.count({'h','e','l','l','o','s','l','k','h','e','l','l','o','d','j','l','a','d','f','j','h','e','l','l','o'})
-Output: 1
-Input: #3 - string.count({'h','e','l','l','o','s','l','k','h','e','l','l','o','d','j','h','k','l','l','a','d','f','j','h','e','l','l','o'})
-Output: 0
+string = "MSITExam"
+Input: #3 - string.indexOf({'I','T','E'})
+Output: 2
+Input: #3 - string.contains({' '})
+Output: false
+Input: #3 - string.contains({'e'})
+Output: false
+Input: #3 - string.endsWith({''})
+Output: true

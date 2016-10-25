@@ -1,109 +1,123 @@
+import java.util.Scanner;
+
 class StringADT{
-	char array[];
-	public StringADT(char[] arr){
-		array=arr;
-	}
-	public int indexOf(char element){
+	char h[];
+	public StringADT(char [] array){
+		h=array;
 
-		for (int g=0;g<array.length ;g++ ) {
-			if (array[g]==element) {
-				return g;
+	}
+	public int indexOf(char [] array2 ){
+
+		int p = 0;
+
+		if(contains(array2)){
+			for(int w=0;w<h.length;w++){
+				if(h[w]==array2[0]){
+					p=w;
+					break;			
+				}
 			}
 		}
-
-		return -1;
-
-	}
-	public int length(){
-
-		if(array.length==0){
-			return 0;
-
-		}
-		else {
-			return array.length;
+		else{
+			return -1;
 		}
 
-	
-	}
-	public int count(char[] arr1){
-		int count1=0;
-		String q ="";
-		String s1="";
-		for (int y=0;y<array.length ;y++ ) {
-			q=q+array[y];
-		}
-		for (int x=0;x<arr1.length ;x++ ) {
-			s1=s1+arr1[x];
-		}
-		if (array.length<arr1.length) {
+		return p;
 
-			return 0;
-			
-		}/* if given array contains 1 character */
 		
-		else if(arr1.length==1){
 
-			for (int v=0;v<arr1.length ;v++ ) {
-				for (int h=0;h<array.length ;h++ ) {
-					if (array[h]==arr1[v]) {
-						count1++;
-					}
-				}
-			}
-			return count1;
-
-		}/* if given array */
-		else if(array.length>arr1.length){
-			
-			boolean w =false;
-
-			try{
-				for (int l=0;l<array.length ;l++ ) {
-					if(arr1[0]==array[l]){
-						if (contains(l,arr1)==true) {
-							count1++;
-						}
-					}
-				}
-			}
-			catch (IndexOutOfBoundsException e) {
-				System.out.println(e.getMessage());
-				System.out.println();
-			}
-		}
-		else if (q.equals(s1)) {
-			return 1;
-		}
-
-		return count1;
 	}
-	public boolean contains(int index,char[] arr1){
-		int count=0;
-		for (int e=index,u=0;e<array.length&&u<arr1.length ;e++,u++ ) {
-			if (array[e]==arr1[u]) {
-				count++;
-				
+	public boolean contains(char [] array1){
+
+		boolean w1 = false;
+
+		for(int f=0;f<array1.length;f++){
+			char temp = array1[f];
+			for(int w=0;w<h.length;w++){
+				if(h[w]==temp){
+					w1=true;
+					break;
+				}
 			}
 		}
-		if (count==arr1.length) {
+
+		if(w1){
 			return true;
 		}
 		else{
 			return false;
 		}
 
+
+		
+
+	}
+	public boolean endswith(char [] array3){
+
+
+		if(indexOf(array3)!=-1){
+			return true;
+		}
+
+		return false;
+
+	}
+	public static void testcases(char [] h,char [] g1,char [] g2,char[] g3){
+
+		StringADT d = new StringADT(h);
+
+		System.out.println(d.indexOf(g1));
+
+		System.out.println(d.contains(g2));
+
+		System.out.println(d.endswith(g3));
+
 	}
 
 	public static void main(String[] args) {
-		char testCase[] = new char[]{'m','i','s','s','i','s','s','i','p','p','i'};
-		StringADT h = new StringADT(testCase);
-		System.out.println(h.indexOf('i'));
-		testCase = new char[]{'i','s'};
-		System.out.println(h.count(testCase));
+
+
+		char h[] = new char[]{'h','e','l','l','o',' ','w','o','r','l','d'};
+
+		char g1[] = new char[]{'w','o','r','l','d'};
+
+		char g2[] = new char[]{'o',' ','w','o','r'};
+
+		char g3[] = new char[]{'l','d'};
+
+		testcases(h,g1,g2,g3);
+
+		h = new char[]{'\0'};
+
+		g1 = new char[]{'2','4'};
+
+		g2 = new char[]{'m','s','i','t'};
+
+		g3 = new char[]{' '};
+
+		testcases(h,g1,g2,g3);
+
+
+
+		h = new char[]{'M','S','I','T','E','x','a','m'};
+
+		g1 = new char[]{'I','T','E'};
+
+		g2 = new char[]{' '};
+
+	
+
+		
 
 
 
 
+
+
+		
+		
+
+
+		
 	}
 }
