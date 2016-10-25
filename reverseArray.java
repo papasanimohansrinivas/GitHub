@@ -61,21 +61,56 @@ class reverseArray{
 	public void swap(){
 
 	}
+	public void removeDuplicates(){
+
+		for (int w=0;w<array.length;w++ ) {
+			if(count(array[w])==1){
+				array[w]=0;
+			}
+		}
+
+		for (int u=0;u<array.length ;u++ ) {
+			for (int r=0;r<array.length ;r++ ) {
+				if (((u!=r) && (array[u]==array[r]))) {
+					array[r]=0;
+				}		
+			}	
+		}
+
+	}
+	public int count(int element){
+		int count=0;
+		for (int g=0;g<array.length ;g++ ) {
+			if (element==array[g]) {
+				count++;
+				
+			}
+			
+		}
+		return count;
+
+
+	}
 	public String toString(){
 
 
 		String h = "";
 
 		for (int d=0;d<array.length ;d++ ) {
-			h=h+array[d]+" ";
+
+			if(array[d]!=0){
+				h=h+array[d]+" ";
+			}
+			
 		}
 		return h;
 	}
 }
 class Test{
 	public static void main(String[] args) {
+		
 
-		int initialArray[] = new int[]{};
+		int initialArray[] = new int[]{1,2,3,4,5,5,5,6,7,7,8,8,8,9,9,10};
 
 		reverseArray t = new reverseArray(initialArray);
 
@@ -86,6 +121,12 @@ class Test{
 		t.reverse();
 
 		System.out.println("after reversing");
+
+		System.out.println(t.toString());
+
+		System.out.println("removingDuplicates....");
+
+		t.removeDuplicates();
 
 		System.out.println(t.toString());
 
